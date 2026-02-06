@@ -1,0 +1,131 @@
+/* Services.css - Theme Responsive */
+:root {
+  /* Light Theme Variables */
+  --section-bg-light: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  --card-bg-light: rgba(255, 255, 255, 0.8);
+  --card-border-light: rgba(0, 0, 0, 0.08);
+  --card-shadow-light: 0 20px 40px rgba(0, 0, 0, 0.08);
+  
+  /* Dark Theme Variables */
+  --section-bg-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+  --card-bg-dark: rgba(30, 30, 30, 0.6);
+  --card-border-dark: rgba(255, 255, 255, 0.1);
+  --card-shadow-dark: 0 20px 40px rgba(0, 0, 0, 0.3);
+  
+  /* Default to light theme */
+  --section-bg: var(--section-bg-light);
+  --card-bg: var(--card-bg-light);
+  --card-border: var(--card-border-light);
+  --card-shadow: var(--card-shadow-light);
+}
+
+/* Dark theme preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --section-bg: var(--section-bg-dark);
+    --card-bg: var(--card-bg-dark);
+    --card-border: var(--card-border-dark);
+    --card-shadow: var(--card-shadow-dark);
+  }
+}
+
+#services {
+  padding: 100px 0;
+  background: var(--section-bg);
+  position: relative;
+}
+
+/* Section Title */
+.section-title h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, 
+    var(--hero-text) 0%, 
+    var(--primary-accent) 50%, 
+    var(--primary-blue) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-title p {
+  color: var(--hero-text-muted);
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+/* Service Card */
+.service-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 1px solid var(--card-border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--card-shadow);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+.service-card h3 {
+  color: var(--hero-text);
+}
+
+.service-card p {
+  color: var(--hero-text-muted);
+}
+
+/* Service Features */
+.service-features li {
+  color: var(--hero-text-muted);
+}
+
+/* Service CTA Buttons */
+.service-cta:first-child {
+  background: linear-gradient(135deg, 
+    var(--whatsapp-green) 0%, 
+    var(--whatsapp-dark) 100%
+  );
+  color: white;
+}
+
+.service-cta:last-child {
+  background: linear-gradient(135deg, 
+    var(--primary-accent) 0%, 
+    #ff4757 100%
+  );
+  color: white;
+}
+
+/* Additional Services */
+.additional-services h3 {
+  color: var(--hero-text);
+}
+
+.service-tags span {
+  background: var(--card-bg);
+  color: var(--hero-text);
+  border: 1px solid var(--card-border);
+}
+
+.service-tags span:hover {
+  border-color: rgba(255, 107, 53, 0.3);
+  color: var(--primary-accent);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}

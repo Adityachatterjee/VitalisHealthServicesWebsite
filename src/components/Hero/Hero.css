@@ -1,0 +1,293 @@
+/* Hero.css - Theme Responsive */
+:root {
+  /* Light Theme Variables */
+  --hero-bg-light: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --hero-overlay-light: linear-gradient(135deg, 
+    rgba(248, 250, 252, 0.9) 0%, 
+    rgba(226, 232, 240, 0.95) 100%
+  );
+  --hero-text-light: #1a202c;
+  --hero-text-muted-light: #4a5568;
+  --hero-card-bg-light: rgba(255, 255, 255, 0.8);
+  --hero-card-border-light: rgba(0, 0, 0, 0.1);
+  
+  /* Dark Theme Variables */
+  --hero-bg-dark: #000000;
+  --hero-overlay-dark: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.95) 0%, 
+    rgba(20, 20, 20, 0.98) 100%
+  );
+  --hero-text-dark: #ffffff;
+  --hero-text-muted-dark: rgba(255, 255, 255, 0.8);
+  --hero-card-bg-dark: rgba(30, 30, 30, 0.6);
+  --hero-card-border-dark: rgba(255, 255, 255, 0.1);
+  
+  /* Default to light theme */
+  --hero-bg: var(--hero-bg-light);
+  --hero-overlay: var(--hero-overlay-light);
+  --hero-text: var(--hero-text-light);
+  --hero-text-muted: var(--hero-text-muted-light);
+  --hero-card-bg: var(--hero-card-bg-light);
+  --hero-card-border: var(--hero-card-border-light);
+}
+
+/* Dark theme preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hero-bg: var(--hero-bg-dark);
+    --hero-overlay: var(--hero-overlay-dark);
+    --hero-text: var(--hero-text-dark);
+    --hero-text-muted: var(--hero-text-muted-dark);
+    --hero-card-bg: var(--hero-card-bg-dark);
+    --hero-card-border: var(--hero-card-border-dark);
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--hero-bg);
+  padding: 100px 0 60px;
+  text-align: center;
+}
+
+/* Background Overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, 
+      rgba(77, 171, 247, 0.1) 0%, 
+      transparent 50%
+    ),
+    radial-gradient(circle at 80% 20%, 
+      rgba(255, 107, 53, 0.1) 0%, 
+      transparent 50%
+    ),
+    var(--hero-overlay);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  background: var(--hero-card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 24px;
+  padding: 4rem 3rem;
+  border: 1px solid var(--hero-card-border);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main Title */
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: transparent;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, 
+    var(--hero-text) 0%, 
+    var(--primary-accent) 30%, 
+    var(--primary-blue) 70%, 
+    var(--hero-text) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: 1.8rem;
+  color: var(--hero-text-muted);
+  margin-bottom: 2rem;
+  font-weight: 600;
+  max-width: 800px;
+  line-height: 1.4;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-subtitle strong {
+  color: var(--primary-accent);
+  font-weight: 700;
+}
+
+/* Description */
+.hero-description {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--hero-text-muted);
+  margin-bottom: 3rem;
+  max-width: 700px;
+  padding: 2rem;
+  background: var(--hero-card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--hero-card-border);
+}
+
+/* Stats Grid */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+  max-width: 1000px;
+}
+
+.stat-card {
+  background: var(--hero-card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--hero-card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 107, 53, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, 
+    var(--primary-accent) 0%, 
+    var(--primary-blue) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Services Grid */
+.hero-services {
+  margin: 4rem 0;
+  max-width: 1000px;
+}
+
+.services-title {
+  font-size: 1.2rem;
+  color: var(--primary-accent);
+  margin-bottom: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--hero-card-bg);
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--hero-card-border);
+  color: var(--hero-text);
+}
+
+.service-item:hover {
+  background: var(--hover-bg);
+  transform: translateX(10px);
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+/* Action Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 2rem;
+  margin: 4rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-btn {
+  padding: 1.25rem 3rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 240px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-btn.primary {
+  background: linear-gradient(135deg, 
+    var(--primary-accent) 0%, 
+    #ff4757 100%
+  );
+  color: white;
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+}
+
+.hero-btn.secondary {
+  background: transparent;
+  color: var(--hero-text);
+  border: 2px solid var(--hero-card-border);
+}
+
+.hero-btn.secondary:hover {
+  background: var(--hover-bg);
+  border-color: var(--hero-text);
+}
+
+/* Responsive Design - Keep existing responsive styles */
+@media (max-width: 1200px) {
+  .hero-title {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+}

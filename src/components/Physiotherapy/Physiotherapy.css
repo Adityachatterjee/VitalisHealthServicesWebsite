@@ -1,0 +1,89 @@
+/* Physiotherapy.css - Theme Responsive */
+:root {
+  /* Light Theme Variables */
+  --physio-bg-light: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  --physio-card-bg-light: rgba(255, 255, 255, 0.9);
+  --physio-card-border-light: rgba(0, 0, 0, 0.1);
+  --physio-card-shadow-light: 0 20px 40px rgba(0, 0, 0, 0.1);
+  
+  /* Dark Theme Variables */
+  --physio-bg-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+  --physio-card-bg-dark: rgba(30, 30, 30, 0.7);
+  --physio-card-border-dark: rgba(255, 255, 255, 0.1);
+  --physio-card-shadow-dark: 0 20px 40px rgba(0, 0, 0, 0.3);
+  
+  /* Default to light theme */
+  --physio-bg: var(--physio-bg-light);
+  --physio-card-bg: var(--physio-card-bg-light);
+  --physio-card-border: var(--physio-card-border-light);
+  --physio-card-shadow: var(--physio-card-shadow-light);
+}
+
+/* Dark theme preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --physio-bg: var(--physio-bg-dark);
+    --physio-card-bg: var(--physio-card-bg-dark);
+    --physio-card-border: var(--physio-card-border-dark);
+    --physio-card-shadow: var(--physio-card-shadow-dark);
+  }
+}
+
+.physio-section {
+  padding: 100px 0;
+  background: var(--physio-bg);
+  position: relative;
+}
+
+/* Content Cards */
+.physio-info,
+.physio-treatments-container {
+  background: var(--physio-card-bg);
+  backdrop-filter: blur(15px) saturate(180%);
+  border-radius: 20px;
+  padding: 3rem;
+  border: 1px solid var(--physio-card-border);
+  box-shadow: var(--physio-card-shadow);
+}
+
+/* Text Colors */
+.physio-info h3,
+.physio-treatments-container h3,
+.physio-info p,
+.treatment-item {
+  color: var(--hero-text);
+}
+
+/* Director Card */
+.physio-director {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+}
+
+/* Contact Card */
+.physio-contact .contact-item {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+}
+
+.physio-contact .contact-item strong {
+  color: var(--hero-text);
+}
+
+/* Treatment Items */
+.treatment-item {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+}
+
+.treatment-item:hover {
+  background: var(--hover-bg);
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .physio-content {
+    grid-template-columns: 1fr;
+  }
+}
