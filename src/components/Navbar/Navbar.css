@@ -353,3 +353,84 @@
 .navbar {
   animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* Add this to your Navbar.css */
+
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem !important;
+  }
+  
+  .nav-content {
+    gap: 1rem !important;
+  }
+  
+  /* Fix emergency button */
+  .nav-cta {
+    margin-left: auto;
+    margin-right: 10px;
+    padding: 0.6rem 0.8rem !important;
+    min-width: auto !important;
+    width: auto;
+  }
+  
+  .nav-cta span {
+    display: none !important;
+  }
+  
+  /* Show only icon on mobile */
+  .nav-cta::after {
+    content: '' !important;
+  }
+  
+  /* Adjust mobile menu button */
+  .mobile-menu-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Fix logo size */
+  .logo-image img {
+    height: 40px !important;
+    max-width: 150px;
+  }
+  
+  /* Mobile menu positioning */
+  .nav-links {
+    top: 60px !important; /* Lower it for better visibility */
+    padding: 1.5rem !important;
+  }
+  
+  .nav-links a {
+    padding: 1rem 0 !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-cta {
+    padding: 0.5rem 0.6rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .nav-cta i {
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+  }
+  
+  .logo-image img {
+    height: 35px !important;
+  }
+  
+  .mobile-menu-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+}

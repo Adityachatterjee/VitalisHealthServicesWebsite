@@ -193,3 +193,81 @@ body {
               border-color 0.3s ease, 
               color 0.3s ease;
 }
+/* Add this to your main CSS file or create contrast-fix.css */
+
+/* Fix for light theme text visibility */
+@media (prefers-color-scheme: light) {
+  /* Ensure text is dark enough on light backgrounds */
+  body, 
+  .hero-title,
+  .hero-subtitle,
+  .hero-description,
+  .service-card h3,
+  .service-card p,
+  .service-features li,
+  .physio-info h3,
+  .physio-info p,
+  .treatment-item,
+  .equipment-card h3,
+  .equipment-card p,
+  .equipment-notice h3,
+  .equipment-notice p {
+    color: #1a202c !important; /* Dark gray for better contrast */
+  }
+  
+  .text-muted,
+  .hero-subtitle strong,
+  .stat-label,
+  .service-card p,
+  .physio-info p,
+  .equipment-card p {
+    color: #4a5568 !important; /* Slightly lighter but still visible */
+  }
+  
+  /* Fix background contrast */
+  .content-wrapper,
+  .service-card,
+  .physio-info,
+  .physio-treatments-container,
+  .equipment-card,
+  .equipment-notice {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+/* Fix for mobile touch targets */
+@media (max-width: 768px) {
+  /* Minimum touch target size for iOS */
+  button,
+  .mobile-menu-btn,
+  .hero-btn,
+  .service-cta,
+  .nav-cta,
+  a.btn-primary {
+    min-height: 44px !important; /* Apple recommends 44x44 */
+    min-width: 44px !important;
+  }
+  
+  /* Ensure text is readable on mobile */
+  body {
+    font-size: 16px !important; /* Prevent iOS zoom on input */
+    -webkit-text-size-adjust: 100%; /* Prevent text scaling */
+  }
+  
+  /* Improve spacing for mobile */
+  .section {
+    padding: 40px 0 !important;
+  }
+  
+  .container {
+    padding: 0 16px !important; /* Standard mobile padding */
+  }
+  
+  /* Fix viewport for iOS */
+  @supports (-webkit-touch-callout: none) {
+    .hero {
+      min-height: -webkit-fill-available !important;
+    }
+  }
+}
